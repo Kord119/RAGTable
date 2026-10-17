@@ -28,13 +28,20 @@
 git clone https://github.com/Kord119/local-rag-gemma4.git
 cd local-rag-gemma4
 ### 2. Подготовка моделей
-Скачайте модели Gemma 4 в папку models/:
-gemma-4-12B-it-QAT-Q4_0.gguf (~6.5 GB) — основная LLM
-mmproj-gemma-4-12B-it-QAT-BF16.gguf (~168 MB) — vision encoder для мультимодальности
 
-Модели не включены в репозиторий из-за ограничений GitHub на размер файлов.
+Скачайте модели Gemma 4 в папку `models/`:
+
+- `gemma-4-12B-it-QAT-Q4_0.gguf` (~6.5 GB) — основная LLM
+- `mmproj-gemma-4-12B-it-QAT-BF16.gguf` (~168 MB) — vision encoder для мультимодальности
+
+> **Примечание**: Модели не включены в репозиторий из-за ограничений GitHub на размер файлов. Скачайте их с [Hugging Face](https://huggingface.co/).
+
 ### 3. Запуск сервисов
-1 docker compose up -d
+
+Запустите все контейнеры:
+
+
+docker compose up -d
 Проверьте логи загрузки модели:
 docker logs llamacpp -f
 Дождитесь появления строки llama server listening on http://0.0.0.0:8000 (обычно 1-3 минуты).
