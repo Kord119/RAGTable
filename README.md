@@ -31,6 +31,7 @@ cd local-rag-gemma4
 Скачайте модели Gemma 4 в папку models/:
 gemma-4-12B-it-QAT-Q4_0.gguf (~6.5 GB) — основная LLM
 mmproj-gemma-4-12B-it-QAT-BF16.gguf (~168 MB) — vision encoder для мультимодальности
+
 Модели не включены в репозиторий из-за ограничений GitHub на размер файлов.
 ### 3. Запуск сервисов
 1 docker compose up -d
