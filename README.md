@@ -59,23 +59,7 @@ python producer.py "Для чего Docker использует контейне
 LLM Chat: http://localhost:8000
 Qdrant Dashboard: http://localhost:6333/dashboard
 RabbitMQ Management: http://localhost:15672 (guest/guest)
-Архитектура
-┌─────────────────────────────────────────────┐
-│              Docker Compose                  │
-│                                              │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-│  │llama.cpp │  │ Qdrant   │  │ RabbitMQ │  │
-│  │:8000     │  │ :6333    │  │ :5672    │  │
-│  │  GPU     │  │  Vector  │  │  Queue   │  │
-│  └────┬─────┘  └────┬─────┘  └──────────┘  │
-└───────┼─────────────┼────────────────────────┘
-        │             │
-        ▼             ▼
-┌─────────────────────────────────────────────┐
-│      Python RAG App                          │
-│      - BGE-M3 embeddings (CPU)               │
-│      - Sentence Transformers                 │
-└─────────────────────────────────────────────┘
+
 ### Распределение нагрузки:
 LLM (Gemma 4) → GPU: генерация текста требует массового параллелизма
 Embeddings (BGE-M3) → CPU: экономит VRAM, быстрый инференс
