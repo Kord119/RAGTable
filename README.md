@@ -25,7 +25,7 @@
 
 ### 1. Клонирование репозитория
 
-git clone https://github.com/YOUR_USERNAME/local-rag-gemma4.git
+git clone https://github.com/Kord119/local-rag-gemma4.git
 cd local-rag-gemma4
 2. Подготовка моделей
 Скачайте модели Gemma 4 в папку models/:
