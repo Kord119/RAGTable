@@ -1,0 +1,22 @@
+# ============================================
+# RAG System - Direct Dependencies
+# ============================================
+
+# HTTP client for llama.cpp and Qdrant REST API
+requests>=2.32.0
+
+# Embedding models (BGE-M3 for multilingual search)
+# Note: will automatically install torch (CPU), transformers, numpy
+sentence-transformers>=3.0.0
+
+# ============================================
+# Optional: Official Qdrant client (if preferred over HTTP)
+# ============================================
+# qdrant-client>=1.9.0
+
+# ============================================
+# Optional: FastAPI server version
+# ============================================
+# fastapi>=0.115.0
+# uvicorn>=0.30.0
+# pydantic>=2.0.0
