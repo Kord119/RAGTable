@@ -27,12 +27,12 @@
 
 git clone https://github.com/Kord119/local-rag-gemma4.git
 cd local-rag-gemma4
-2. Подготовка моделей
+### 2. Подготовка моделей
 Скачайте модели Gemma 4 в папку models/:
 gemma-4-12B-it-QAT-Q4_0.gguf (~6.5 GB) — основная LLM
 mmproj-gemma-4-12B-it-QAT-BF16.gguf (~168 MB) — vision encoder для мультимодальности
 Модели не включены в репозиторий из-за ограничений GitHub на размер файлов.
-3. Запуск сервисов
+### 3. Запуск сервисов
 1 docker compose up -d
 Проверьте логи загрузки модели:
 docker logs llamacpp -f
@@ -50,7 +50,7 @@ python producer.py --load
 python producer.py
 В интерактивном режиме доступна команда:
 /add Текст документа --source=название_источника
-Запросы к системе
+### Запросы к системе
 В интерактивном режиме: ❓ Ваш вопрос:
 Или из командной строки:
 python producer.py "Для чего Docker использует контейнеры?"
@@ -76,16 +76,16 @@ RabbitMQ Management: http://localhost:15672 (guest/guest)
 │      - BGE-M3 embeddings (CPU)               │
 │      - Sentence Transformers                 │
 └─────────────────────────────────────────────┘
-Распределение нагрузки:
+### Распределение нагрузки:
 LLM (Gemma 4) → GPU: генерация текста требует массового параллелизма
 Embeddings (BGE-M3) → CPU: экономит VRAM, быстрый инференс
 Vector DB (Qdrant) → RAM/SSD: векторный поиск
 
-Технические решения
+### Технические решения
 QAT-квантование: Gemma 4 QAT-Q4 помещается в 16GB VRAM с запасом для KV-cache, сохраняя 95%+ качества FP16.
 Multilingual embeddings: BGE-M3 от BAAI обеспечивает качественный кросс-лингвальный поиск (русский ↔ английский, транслитерация).
 Thinking Mode: Корректная обработка поля reasoning_content в ответах Gemma 4 с fallback при пустом content.
-Известные проблемы
+### Известные проблемы
 Если модель не загружается (OOM), то уменьшите MAX_TOKENS в producer.py или используйте меньшую контекстную длину.
 Если Docker не виден в WSL то включите WSL Integration в Docker Desktop:
 Settings → Resources → WSL Integration → Ubuntu: ON
